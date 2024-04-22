@@ -1,5 +1,5 @@
 ### ТЕКСТ ДИПЛОМНОЙ РАБОТЫ 
-git push -u origin main
+https://github.com/Gregorian1489/ATTESTATION/blob/main/Text.pdf
 
 # diplom-project
 
