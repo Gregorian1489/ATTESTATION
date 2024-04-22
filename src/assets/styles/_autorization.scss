@@ -1,0 +1,45 @@
+@import '@/assets/styles/_vars.scss';
+@import '@/assets/styles/_mixins.scss';
+
+.autorization__wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: $color_green_medium;
+
+    &__input {
+        width: 400px;
+        height: 40px;
+        border-radius: 15px;
+        @include font_Roboto(18, 400);
+        border: none;
+        padding-left: 10px;
+    }
+
+    &__input:focus {
+        outline: none;
+    }
+
+    &__btn {
+        @include font_Roboto(20, 600);
+        width: 100px;
+        height: 40px;
+        background-color: #fff;
+        color: $color_black;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+    }
+
+    &__btn:hover {
+        background-color: $color_brown;
+        color: #fff;
+        scale: 1.1;
+    }
+
+
+}

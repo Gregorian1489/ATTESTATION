@@ -1,0 +1,182 @@
+@import '@/assets/styles/_vars.scss';
+@import '@/assets/styles/_mixins.scss';
+
+.addTaskWindow {
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    &__input {
+        width: 400px;
+        height: 40px;
+        border-radius: 5px;
+        @include font_Roboto(18, 400);
+        padding-left: 10px;
+        color: black;
+    }
+
+    &__wrapperCheck {
+        padding-top: 40px;
+        width: 400px;
+        display: flex;
+        justify-content: space-between;
+        color: #fff;
+        @include font_Roboto(20, 400);
+
+        &__label {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        &__input {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+            gap: 21px;
+        }
+
+        &__checkbox {
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            -o-appearance: none;
+            appearance: none;
+            height: 1em;
+            width: 2em;
+            border-radius: 1em;
+            box-shadow: inset -1em 0px 0px 0px rgba(192, 192, 192, 1);
+            background-color: white;
+            border: 1px solid rgba(192, 192, 192, 1);
+            outline: none;
+            -webkit-transition: 0.2s;
+            transition: 0.2s;
+        }
+
+        &__checkbox:checked {
+            box-shadow: inset 1em 0px 0px 0px #88BDBC;
+            border: 1px solid #4F4A41;
+        }
+        &__checkbox:focus {
+            outline-width: 0;
+        }
+    }
+}
+
+.wrapper__home {
+    display: flex;
+}
+
+.left_panel {
+    width: 15%;
+    height: 94vh;
+    background-color: $color_green_medium;
+
+    &__title {
+        @include font_Roboto(24, 400);
+        color: #fff;
+        padding-top: 20px;
+        padding-left: 20px;
+    }
+}
+
+.right__panel {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+
+    &__top {
+        background-color: $color_green;
+        height: 24vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__btn {
+            @include font_Roboto(20, 600);
+            width: 200px;
+            height: 80px;
+            background-color: $color_brown;
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        &__btn:hover {
+            background-color: $color_brown_light;
+            scale: 1.1;
+        }
+    }
+
+    &__bottom {
+        background-color: $color_green_dark;
+        height: 70vh;
+        padding: 40px;
+
+        &__wrapper {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+         
+        }
+
+        &__text {
+            text-align: center;
+            @include font_Roboto(24, 400);
+            color: #fff;
+            margin-bottom: 20px;
+
+        }
+
+        &__buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+
+            &__btn {
+                @include font_Roboto(20, 400);
+                width: 120px;
+                height: 40px;
+                background-color: $color_green_medium;
+                color: #fff;
+                border: 1px solid #88BDBC;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            &__btn:hover {
+                background-color: $color_brown_light;
+                scale: 1.1;
+            }
+        }
+
+        &__list {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+
+            &__item {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                color: #fff;
+                @include font_Roboto(20, 400);
+                border: 1px solid #88BDBC;
+                border-radius: 5px;
+            }
+
+        }
+    }
+    
+}

@@ -1,0 +1,45 @@
+@import '@/assets/styles/_mixins.scss';
+@import '@/assets/styles/_vars.scss';
+.Test {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+       background-color: $color_green;
+       height: 50vh;
+       width: 100%;
+       justify-content: center; 
+       align-items: center;
+       gap: 5px;
+       
+
+        &__text {
+            text-align: center;
+            margin-top: 20px;
+            @include font_Roboto(100, 600);
+            color: $color_green_dark;
+        }
+    }
+
+    &_2 {
+        height: 10vh;
+        width: 100%;
+        background-color: $color_brown;
+    }
+
+    &__input {
+        margin-top: 10px;
+        width: 400px;
+        height: 30px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+    }
+
+    &__checkbox {
+        display: flex;
+        gap: 5px;
+    }
+}

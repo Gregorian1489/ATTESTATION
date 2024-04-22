@@ -1,0 +1,6 @@
+@mixin font_Roboto($size, $weight) {
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: $weight;
+    font-size: $size + px;
+}
