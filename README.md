@@ -1,4 +1,4 @@
-###ТЕСТ ДИПЛОМНОЙ РАБОТЫ 
+### ТЕКСТ ДИПЛОМНОЙ РАБОТЫ 
 git push -u origin main
 
 # diplom-project
