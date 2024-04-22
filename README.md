@@ -1,3 +1,6 @@
+###ТЕСТ ДИПЛОМНОЙ РАБОТЫ 
+git push -u origin main
+
 # diplom-project
 
 ## Project setup
