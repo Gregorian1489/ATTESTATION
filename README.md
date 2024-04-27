@@ -1,6 +1,3 @@
-### ТЕКСТ ДИПЛОМНОЙ РАБОТЫ 
-https://github.com/Gregorian1489/ATTESTATION/blob/main/Text.pdf
-
 # diplom-project
 
 ## Project setup
