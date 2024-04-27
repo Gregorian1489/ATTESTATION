@@ -180,3 +180,23 @@
     }
     
 }
+
+.invalid {
+    border: 1px solid red;
+}
+
+.helper-text {
+    color: rgb(204, 109, 109);
+    @include font_Roboto(24, 400);
+    position: absolute;
+    z-index: 10;
+    bottom: 30px;
+}
+
+.helper-text-1 {
+    color: rgb(204, 109, 109);
+    @include font_Roboto(24, 400);
+    position: absolute;
+    z-index: 10;
+    bottom: 5px;
+}

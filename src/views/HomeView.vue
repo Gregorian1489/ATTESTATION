@@ -11,8 +11,18 @@
       @randomEvent = "saveTask(ObjectX)"
       @closeModal = "openModWin = false">
          <div class="addTaskWindow">
-          <input class="addTaskWindow__input" type="text" v-model="description" placeholder="description">
-          <input class="addTaskWindow__input" type="number" v-model="count" placeholder="count">
+          <input class="addTaskWindow__input" type="text" v-model="description"  placeholder="description" :class="{invalid: $v.description.$dirty && !$v.description.required }">
+          <span
+          class="helper-text"
+          v-if="$v.description.$dirty && !$v.description.required"
+          >Пожалуйста, заполните поле описания</span>
+
+          <input class="addTaskWindow__input" type="number" v-model="count" placeholder="count" :class="{invalid: $v.count.$dirty && !$v.count.minValue}">
+          <span
+          class="helper-text-1"
+          v-if="$v.count.$dirty && !$v.count.minValue"
+          >Минимальное значение  = 1</span>
+          
           <div class="addTaskWindow__wrapperCheck">
             <div class="addTaskWindow__wrapperCheck__label">
               <label for="1">Резка</label>
@@ -68,14 +78,16 @@
 </template>
 
 <script>
+  
 import ModalWindowComponent from '@/components/ModalWindowComponent.vue';
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import { mapGetters, mapMutations } from 'vuex';
-
+import {required, minLength, minValue} from 'vuelidate/lib/validators';
 
 
 export default {
   name: 'HomeView',
+  
   components: {
     ModalWindowComponent,
     HeaderComponent,
@@ -102,6 +114,11 @@ export default {
       },
     }
   }, 
+  validations: {
+    description: {required, minLength: minLength(5)},
+    count: {minValue: minValue(1)},
+    
+  },
   methods: {
     ...mapMutations(['setArrayTask', 'newValue','saveInLocalStorage','loadArrayTaskCompleted','switchTempArray']),
     openModal() {
@@ -118,11 +135,22 @@ export default {
       ObjectX.date = new Date().getDate().toString()+'.'+new Date().getMonth().toString()+'.'+new Date().getFullYear().toString();
     },
     saveTask(ObjectX) {
+      if (this.$v.$invalid) {
+        this.$v.$touch();
+        return
+      }
       this.SetObject(ObjectX);
+      if (this.ObjectX.productionStages.length === 0) {
+        alert('Не заданы стадии для исполнения');
+        return
+      }
       this.setArrayTask(ObjectX);
       this.saveInLocalStorage();
+      alert('Задача успешно добавлена');
+      this.openModWin = false;
 
     },
+    
   },
 
   computed: {
@@ -130,6 +158,7 @@ export default {
   },
 
 }
+
 </script>
 
 <style lang="scss">
