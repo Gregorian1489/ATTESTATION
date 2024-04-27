@@ -18,6 +18,9 @@ const store = new Vuex.Store({
         {
           cutter: "user11",
         },
+        {
+          bender: "user22",
+        }
       ]
     },
     mutations: {
@@ -27,6 +30,8 @@ const store = new Vuex.Store({
             window.location.href = 'http://localhost:8080/admin';
             } else if (state.arrayOfAuthorization[i].cutter === arr[0]) {
             window.location.href = 'http://localhost:8080/task';
+            } else if (state.arrayOfAuthorization[i].bender === arr[0]) {
+              window.location.href = 'http://localhost:8080/task';
             } else {
               console.log();("Неверный логин или пароль");
             }
@@ -59,6 +64,10 @@ const store = new Vuex.Store({
           state.arrayCuttingComplete.push(state.arrayTask.find( item => item.id === id)); 
           localStorage.setItem("arrayCuttingComplete", JSON.stringify(state.arrayCuttingComplete));  
         },
+        pushInBendArray(state, id) {
+          state.arrayBendComplete.push(state.arrayTask.find( item => item.id === id)); 
+          localStorage.setItem("arrayBendComplete", JSON.stringify(state.arrayBendComplete));
+        },
         setCurrentStage(state, id) { 
 // Метод для переключения стадии задачи. Если стадия последняя, то удаляет задачу из основного массива 
 // и переносит ее в массив "завершенных задач"          
@@ -86,6 +95,9 @@ const store = new Vuex.Store({
         switchTempArray(state, num) {
           if (num===1) {
             state.tempArrayTaskCompleted = JSON.parse(localStorage.getItem("arrayCuttingComplete") || "[]");
+          }
+          if (num===2) {
+            state.tempArrayTaskCompleted = JSON.parse(localStorage.getItem("arrayBendComplete") || "[]");
           }
           if (num===5) {
             state.tempArrayTaskCompleted = JSON.parse(localStorage.getItem("arrayTaskCompleted") || "[]");
